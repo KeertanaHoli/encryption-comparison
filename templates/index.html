@@ -31,7 +31,8 @@
             padding: 12px 30px;
             border-radius: 25px;
             font-weight: 600;
-            transition: all 0.3s;
+            transition: all 0.15s ease;
+            cursor: pointer;
         }
         
         .nav-buttons .btn-outline-light {
@@ -41,12 +42,24 @@
         .nav-buttons .btn-outline-light:hover {
             background-color: white;
             color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .nav-buttons .btn-outline-light:active {
+            transform: translateY(0);
         }
         
         .nav-buttons .btn-light {
             background-color: white;
             color: #667eea;
             border: none;
+            box-shadow: 0 3px 10px rgba(255, 255, 255, 0.2);
+        }
+        
+        .nav-buttons .btn-light:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.4);
         }
         
         .content-container {
@@ -102,12 +115,18 @@
             font-weight: 600;
             width: 100%;
             margin-top: 10px;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: all 0.15s ease;
+            cursor: pointer;
         }
         
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+        }
+        
+        .btn-primary:active {
+            transform: translateY(-1px);
+            box-shadow: 0 3px 10px rgba(102, 126, 234, 0.4);
         }
         
         .alert {

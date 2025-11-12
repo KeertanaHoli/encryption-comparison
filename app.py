@@ -155,7 +155,11 @@ def verify():
 
 @app.route('/clear-chart', methods=['POST'])
 def clear_chart():
-    return jsonify({'success': True, 'message': 'Chart view cleared (blockchain data preserved)'})
+    try:
+        blockchain.clear_blockchain()
+        return jsonify({'success': True, 'message': 'All chart data has been cleared successfully'})
+    except Exception as e:
+        return jsonify({'success': False, 'message': str(e)}), 500
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=False)

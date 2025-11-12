@@ -31,7 +31,8 @@
             padding: 12px 30px;
             border-radius: 25px;
             font-weight: 600;
-            transition: all 0.3s;
+            transition: all 0.15s ease;
+            cursor: pointer;
         }
         
         .nav-buttons .btn-outline-light {
@@ -41,12 +42,24 @@
         .nav-buttons .btn-outline-light:hover {
             background-color: white;
             color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .nav-buttons .btn-outline-light:active {
+            transform: translateY(0);
         }
         
         .nav-buttons .btn-light {
             background-color: white;
             color: #667eea;
             border: none;
+            box-shadow: 0 3px 10px rgba(255, 255, 255, 0.2);
+        }
+        
+        .nav-buttons .btn-light:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.4);
         }
         
         .content-container {
@@ -84,12 +97,18 @@
             border-radius: 25px;
             padding: 12px 30px;
             font-weight: 600;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: all 0.15s ease;
+            cursor: pointer;
         }
         
         .btn-danger:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(245, 87, 108, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(245, 87, 108, 0.5);
+        }
+        
+        .btn-danger:active {
+            transform: translateY(-1px);
+            box-shadow: 0 3px 10px rgba(245, 87, 108, 0.4);
         }
         
         .table-card {
@@ -156,7 +175,7 @@
                 <img src="{{ chart_data }}" alt="Performance Benchmark Chart" class="chart-image">
                 
                 <div class="text-center mt-4">
-                    <button class="btn btn-danger" onclick="location.reload()">Refresh Chart</button>
+                    <button class="btn btn-danger" onclick="clearChartData()">Clear Chart</button>
                 </div>
             {% else %}
                 <p class="text-center text-muted">No benchmark data available. Encrypt or decrypt files to generate charts.</p>
@@ -210,5 +229,27 @@
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        async function clearChartData() {
+            if (confirm('Are you sure you want to clear all chart data? This will erase the entire blockchain ledger.')) {
+                try {
+                    const response = await fetch('/clear-chart', {
+                        method: 'POST'
+                    });
+                    
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        alert('Chart data cleared successfully!');
+                        location.reload();
+                    } else {
+                        alert('Error: ' + result.message);
+                    }
+                } catch (error) {
+                    alert('Error clearing chart data: ' + error.message);
+                }
+            }
+        }
+    </script>
 </body>
 </html>

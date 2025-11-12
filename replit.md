@@ -16,6 +16,9 @@ All operations are logged to an immutable blockchain ledger with automated perfo
 - Created Flask app.py with all routes
 - Designed purple gradient UI matching reference design
 - Configured Flask workflow on port 5000
+- **UPDATE**: Changed benchmark chart to show LAST file only (not averages)
+- **UPDATE**: Implemented "Clear Chart" button that erases all blockchain data
+- **UPDATE**: Improved button sensitivity with faster transitions and better hover effects
 
 ## Project Architecture
 

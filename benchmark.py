@@ -24,33 +24,29 @@ def generate_benchmark_chart() -> str:
         img_base64 = base64.b64encode(buf.read()).decode('utf-8')
         return f'data:image/png;base64,{img_base64}'
     
-    data = {
-        'Algorithm': [],
-        'Encryption Time (ms)': [],
-        'Decryption Time (ms)': [],
-        'File Size (KB)': []
-    }
+    latest_data = {}
     
-    for block in blocks:
-        if block['enc_time_ms'] is not None:
-            data['Algorithm'].append(block['algorithm'])
-            data['Encryption Time (ms)'].append(block['enc_time_ms'])
-            data['Decryption Time (ms)'].append(0)
-            data['File Size (KB)'].append(block['file_size_bytes'] / 1024)
+    for block in reversed(blocks):
+        algo = block['algorithm']
         
-        if block['dec_time_ms'] is not None:
-            data['Algorithm'].append(block['algorithm'])
-            data['Encryption Time (ms)'].append(0)
-            data['Decryption Time (ms)'].append(block['dec_time_ms'])
-            data['File Size (KB)'].append(block['file_size_bytes'] / 1024)
+        if algo not in latest_data:
+            latest_data[algo] = {
+                'Algorithm': algo,
+                'Encryption Time (ms)': 0,
+                'Decryption Time (ms)': 0,
+                'File Size (KB)': 0
+            }
+        
+        if block['enc_time_ms'] is not None and latest_data[algo]['Encryption Time (ms)'] == 0:
+            latest_data[algo]['Encryption Time (ms)'] = block['enc_time_ms']
+            latest_data[algo]['File Size (KB)'] = block['file_size_bytes'] / 1024
+        
+        if block['dec_time_ms'] is not None and latest_data[algo]['Decryption Time (ms)'] == 0:
+            latest_data[algo]['Decryption Time (ms)'] = block['dec_time_ms']
+            if latest_data[algo]['File Size (KB)'] == 0:
+                latest_data[algo]['File Size (KB)'] = block['file_size_bytes'] / 1024
     
-    df = pd.DataFrame(data)
-    
-    agg_data = df.groupby('Algorithm').agg({
-        'Encryption Time (ms)': 'mean',
-        'Decryption Time (ms)': 'mean',
-        'File Size (KB)': 'mean'
-    }).reset_index()
+    agg_data = pd.DataFrame(list(latest_data.values()))
     
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 6))
     
@@ -94,7 +90,7 @@ def generate_benchmark_chart() -> str:
     
     ax2.set_xlabel('Algorithm', fontsize=12, fontweight='bold')
     ax2.set_ylabel('File Size (KB)', fontsize=12, fontweight='bold')
-    ax2.set_title('Average File Size Processed', fontsize=14, fontweight='bold', pad=20)
+    ax2.set_title('File Size Processed', fontsize=14, fontweight='bold', pad=20)
     ax2.set_xticks(x_pos)
     ax2.set_xticklabels(algorithms, rotation=15, ha='right')
     ax2.grid(axis='y', alpha=0.3, linestyle='--')
