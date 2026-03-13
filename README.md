@@ -102,3 +102,16 @@ This application is for educational purposes to demonstrate and compare cryptogr
 # encryption-comparison
 Flask web application for comparing AES-256-GCM, Ascon-128a, and ChaCha20-Poly1305 encryption algorithms with blockchain-based logging and performance benchmarking.
 >>>>>>> 2b6e2edafde5bf80e34dce4945483675fde89055
+## Screenshots
+
+### Application Home Page
+![Home](screenshots/home.png)
+
+### Blockchain Ledger
+![Blockchain Ledger](screenshots/Blockchain_ledger.png)
+
+### Algorithm Performance Comparison
+![Algorithm Performance](screenshots/Algo_Performance_Comparision.png)
+
+### Performance Metrics Summary
+![Performance Metrics](screenshots/Performance_Metrics_Summary.png)
