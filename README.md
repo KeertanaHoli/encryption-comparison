@@ -122,3 +122,10 @@ Flask web application for comparing AES-256-GCM, Ascon-128a, and ChaCha20-Poly13
 
 Keertana Holi  
 Cybersecurity / Cryptography Project
+
+## Project Team
+
+- Keertana Gopal Holi
+- Keerthana H S
+- Savitri
+- Narasimha
