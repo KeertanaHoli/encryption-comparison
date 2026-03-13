@@ -3,44 +3,37 @@ __pycache__/
 *.py[cod]
 *$py.class
 *.so
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
-.pythonlibs/
 
 # Virtual environments
 venv/
-ENV/
 env/
+ENV/
 .venv
+.env
 
-# Flask
-instance/
-.webassets-cache
+# Python build files
+build/
+dist/
+*.egg-info/
+.eggs/
 
 # Database
 *.db
 ledger.db
 
-# Storage
+# Flask
+instance/
+.webassets-cache
+
+# Project storage
+storage/
 storage/encrypted/*
 storage/decrypted/*
 !storage/encrypted/.gitkeep
 !storage/decrypted/.gitkeep
+
+# Logs
+*.log
 
 # IDE
 .vscode/
@@ -49,13 +42,6 @@ storage/decrypted/*
 *.swo
 *~
 
-# OS
+# OS files
 .DS_Store
 Thumbs.db
-
-# Environment variables
-.env
-.env.local
-
-# Logs
-*.log

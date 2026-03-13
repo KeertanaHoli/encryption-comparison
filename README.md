@@ -36,13 +36,13 @@ A Flask web application comparing three encryption algorithms: **AES-256-GCM**, 
 
 - Python 3.11 or higher
 - pip (Python package manager)
-- Git (optional, for cloning the repository)
+- Git
 
 ### Steps
 
-1. **Clone the repository** (or download the project files):
+1. Clone the repository: (or download the project files):
    ```bash
-   git clone https://github.com/Narasimha787911/dec.git
+   git clone https://github.com/KeertanaHoli/encryption-comparison.git
    cd dec
    ```
 
@@ -98,3 +98,7 @@ A Flask web application comparing three encryption algorithms: **AES-256-GCM**, 
 ## Educational Purpose
 
 This application is for educational purposes to demonstrate and compare cryptographic algorithms. Not for production use.
+=======
+# encryption-comparison
+Flask web application for comparing AES-256-GCM, Ascon-128a, and ChaCha20-Poly1305 encryption algorithms with blockchain-based logging and performance benchmarking.
+>>>>>>> 2b6e2edafde5bf80e34dce4945483675fde89055
