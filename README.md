@@ -86,13 +86,16 @@ A Flask web application comparing three encryption algorithms: **AES-256-GCM**, 
 ## File Structure
 
 ```
-├── app.py                 # Flask application
-├── crypto_utils.py        # Encryption/decryption logic
-├── blockchain.py          # Blockchain ledger
-├── benchmark.py           # Chart generation
-├── templates/            # HTML templates
-├── storage/              # Encrypted/decrypted files
-└── ledger.db             # SQLite blockchain database
+encryption-comparison
+├── app.py # Flask application
+├── crypto_utils.py # Encryption/decryption logic
+├── blockchain.py # Blockchain ledger
+├── benchmark.py # Chart generation
+├── templates/ # HTML templates
+├── storage/ # Encrypted/decrypted files
+├── Screenshots/ # Project screenshots for README
+└── ledger.db # SQLite blockchain database
+
 ```
 
 ## Educational Purpose
