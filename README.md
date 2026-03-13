@@ -30,6 +30,52 @@ A Flask web application comparing three encryption algorithms: **AES-256-GCM**, 
 - pandas
 - SQLite
 
+## Installation
+
+### Prerequisites
+
+- Python 3.11 or higher
+- pip (Python package manager)
+- Git (optional, for cloning the repository)
+
+### Steps
+
+1. **Clone the repository** (or download the project files):
+   ```bash
+   git clone https://github.com/Narasimha787911/dec.git
+   cd dec
+   ```
+
+2. **Create a virtual environment** (recommended):
+   ```bash
+   # On Windows
+   python -m venv venv
+   venv\Scripts\activate
+   
+   # On macOS/Linux
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
+
+3. **Install dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Run the application**:
+   ```bash
+   python app.py
+   ```
+
+5. **Access the web interface**:
+   - Open your browser and navigate to: `http://localhost:5000`
+
+### Troubleshooting
+
+- **ModuleNotFoundError**: Ensure your virtual environment is activated and all dependencies are installed
+- **Port 5000 already in use**: Change the port in `app.py` (line 114): `app.run(host='0.0.0.0', port=5001, debug=False)`
+- **Permission denied** (macOS/Linux): Run `chmod +x app.py` before executing
+
 ## Usage
 
 1. **Encrypt File**: Upload file → Select algorithm → Enter passphrase → Download encrypted file
