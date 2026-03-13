@@ -83,7 +83,7 @@ A Flask web application comparing three encryption algorithms: **AES-256-GCM**, 
 3. **View Benchmarks**: Automatically generated charts from blockchain data
 4. **Verify Ledger**: Check blockchain integrity
 
-## File Structure
+## project structure
 
 ```
 encryption-comparison
@@ -118,3 +118,7 @@ Flask web application for comparing AES-256-GCM, Ascon-128a, and ChaCha20-Poly13
 
 ### Performance Metrics Summary
 ![Performance Metrics](screenshots/Performance_Metrics_Summary.png)
+## Author
+
+Keertana Holi  
+Cybersecurity / Cryptography Project
